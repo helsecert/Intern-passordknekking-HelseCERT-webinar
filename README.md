@@ -1,1 +1,1 @@
-# -Intern-passordknekking-HelseCERT-webinar
+# Intern-passordknekking-HelseCERT-webinar
