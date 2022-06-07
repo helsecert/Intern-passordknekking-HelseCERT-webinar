@@ -31,11 +31,11 @@ Installasjon av pip og impacket på Linux.
 sudo apt install python3-pip
 pip install python3-impacket
 ```
-Eksempel på kjøring av impacket verktøyet
+Eksempel på kjøring av impacket verktøyet (Linux):
 ```
 impacket-secretsdump -ntds path/to/ntds.dit -system path/to/SYSTEM -outputfile certweb_ad
 ```
-Vask og anonymisering av passordhasher:
+Vask og anonymisering av passordhasher (Linux):
 ```
 cat certweb_ad.ntds | cut -d : -f 4 > JustTheHashes.txt
 ```
