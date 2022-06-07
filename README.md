@@ -22,9 +22,13 @@ Anbefales at dette ikke installeres på domene kontroller, men en egen dedikert 
 wsl --install
 ```
 Alternativt kan man velge selv hvilken Linux distribusjon man ønsker.
+For å liste ut distrubusjoner som er tilgjengelig online:
 ```
-wsl --list --online (Om man ønsker og installere målrettet pentest verktøy, feks kali linux)
-wsl --install -d %DISTRO%
+wsl --list --online (For å liste ut tilgjenlige Linux distribusjoner)
+```
+Eksempel på og installere Kali Linux:
+```
+wsl --install -d kali-linux
 ```
 Installasjon av pip og impacket på Linux.
 ```
