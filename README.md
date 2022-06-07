@@ -39,3 +39,6 @@ Vask og anonymisering av passordhasher:
 ```
 cat certweb_ad.ntds | cut -d : -f 4 > JustTheHashes.txt
 ```
+
+Del 2 - Revisjon av passord med Hashcat:
+------
