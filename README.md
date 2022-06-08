@@ -22,10 +22,10 @@ Anbefales at dette ikke installeres på domene kontroller, men en egen dedikert 
 ```
 wsl --install
 ```
-Alternativt kan man velge selv hvilken Linux distribusjon man ønsker.
-For å liste ut distrubusjoner som er tilgjengelig online:
+Alternativt kan man velge selv hvilken Linux-distribusjon man ønsker. 
+For å liste ut distribusjoner som er tilgjengelig online:
 ```
-wsl --list --online (For å liste ut tilgjenlige Linux distribusjoner)
+wsl --list --online (For å liste ut tilgjengelige Linux distribusjoner)
 ```
 Eksempel på og installere Ubuntu:
 ```
