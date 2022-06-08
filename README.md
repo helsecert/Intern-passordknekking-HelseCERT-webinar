@@ -41,7 +41,7 @@ impacket-secretsdump -ntds path/to/ntds.dit -system path/to/SYSTEM -outputfile c
 ```
 Vask og anonymisering av passordhasher (Linux):
 ```
-cat certweb_ad.ntds | cut -d : -f 4 > JustTheHashes.txt
+cat certweb_ad.ntds | cut -d : -f 4 > bareNTLM.txt
 ```
 
 Del 2 - Revisjon av passord med Hashcat:
