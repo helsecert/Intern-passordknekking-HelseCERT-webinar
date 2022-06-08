@@ -27,7 +27,7 @@ For å liste ut distribusjoner som er tilgjengelig online:
 ```
 wsl --list --online (For å liste ut tilgjengelige Linux distribusjoner)
 ```
-Eksempel på og installere Ubuntu:
+Eksempel på å installere Ubuntu:
 ```
 wsl --install -d Ubuntu
 ```
