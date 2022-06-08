@@ -26,14 +26,13 @@ For å liste ut distrubusjoner som er tilgjengelig online:
 ```
 wsl --list --online (For å liste ut tilgjenlige Linux distribusjoner)
 ```
-Eksempel på og installere Kali Linux:
+Eksempel på og installere Ubuntu:
 ```
-wsl --install -d kali-linux
+wsl --install -d Ubuntu
 ```
-Installasjon av pip og impacket på Linux.
+Installasjon av impacket på Ubuntu(Debian basert)Linux.
 ```
-sudo apt install python3-pip
-pip install python3-impacket
+sudo apt install python3-impacket
 ```
 Eksempel på kjøring av impacket verktøyet (Linux):
 ```
