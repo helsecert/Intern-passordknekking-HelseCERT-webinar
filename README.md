@@ -36,7 +36,7 @@ sudo apt install python3-impacket
 ```
 Eksempel på kjøring av impacket verktøyet (Linux):
 ```
-impacket-secretsdump -ntds path/to/ntds.dit -system path/to/SYSTEM -outputfile certweb_ad
+impacket-secretsdump -ntds path/to/ntds.dit -system path/to/SYSTEM LOCAL -outputfile certweb_ad
 ```
 Vask og anonymisering av passordhasher (Linux):
 ```
