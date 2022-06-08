@@ -3,10 +3,10 @@
 Nyttige linker:
 - Teknisk oversikt om passord i Windows - https://docs.microsoft.com/en-us/windows-server/security/kerberos/passwords-technical-overview
 - Databaseverktøy for AD ntdsutil - https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc753343(v=ws.11)
-- impacket for dekryptering av AD database - https://www.secureauth.com/labs/open-source-tools/impacket/
+- Dekryptering av AD database - https://www.secureauth.com/labs/open-source-tools/impacket/
 - Om passord ligger i "klartekst" i AD, ("uhashet" bak kryptering") - https://www.stigviewer.com/stig/windows_10/2019-01-04/finding/V-63429
 - Implementering av "no NoLMHash policy" - https://docs.microsoft.com/en-us/troubleshoot/windows-server/windows-security/prevent-windows-store-lm-hash-password
-
+- Passordknekking med hashcat - https://hashcat.net/hashcat/
 
 Del 1 - Eksport av passordhasher fra Active Directory (AD):
 ------
