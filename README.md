@@ -56,14 +56,14 @@ Hashcat 1:
 `-m 1000` sier at vi skal knekke NTLM-hasher. `-a 0` betyr ordlisteangrep, med eller uten ekstra regler. `-r dive.rule` sier at vi skal bruke regelfila dive.rule. Regelfila følger med hashcat, men kan også lastes ned her: https://github.com/hashcat/hashcat/blob/master/rules/dive.rule
 
 ```
-hashcat -m 1000 ntlm-hashes.txt -a 0 ordliste.txt dive.rule
+hashcat -m 1000 ntlm-hashes.txt -a 0 ordliste.txt -r dive.rule
 ```
 
 Hashcat 2:
 `-m 1000` sier at vi skal knekke NTLM-hasher. `-a 6` betyr ordlisteangrep med tegn lagt til på slutten. `?d?d?d?d` sier at vi skal legge til fire siffer på slutten av ordet. `-i` står for incremental, og gjør at man også prøver å legge til 1-3 siffer etter ordet. `-jc` gjør at første bokstav i ordet fra ordlista er stor, mens resten er små.
 
 ```
-hashcat -m 1000 ntlm-hashes.txt -a 6 ordliste.txt ?d?d?d?d -i -
+hashcat -m 1000 ntlm-hashes.txt -a 6 ordliste.txt ?d?d?d?d -i -jc
 ```
 
 Hashcat 3:
@@ -72,9 +72,14 @@ Med `-a 3 ?u?l?l?l?d?d?d?d` prøver vi alle passord som begynner med en stor bok
 hashcat -m 1000 ntlm-hashes.txt -a 3 ?u?l?l?l?d?d?d?d
 ```
 
-Hashcat, vise crackede passord:
+Hashcat, vise crackede hasher og tilhørende passord:
 ```
 hashcat -m 1000 ntlm-hashes.txt --show
+```
+
+Hashcat, vise kun cracked hasher, men ikke passord:
+```
+hashcat -m 1000 ntlm-hashes.txt --show | cut -d : -f 1
 ```
 
 Å bruke hashcat effektivt er en egen liten kunst. Her har vi nå gått for noen enkle kommandoer for å ta de verste passordene, men man kan alltids utvide reportoaret. Verktøyet er godt dokumentert og det finnes mange tutorials online.
