@@ -53,7 +53,9 @@ sort ntlm-hashes.txt | uniq -c | grep -v ' 1 '
 ```
 
 Hashcat 1:
-`-m 1000` sier at vi skal knekke NTLM-hasher. `-a 0` betyr ordlisteangrep, med eller uten ekstra regler. `-r dive.rule` sier at vi skal bruke regelfila dive.rule. Regelfila følger med hashcat, men kan også lastes ned her: https://github.com/hashcat/hashcat/blob/master/rules/dive.rule
+`-m 1000` sier at vi skal knekke NTLM-hasher. `-a 0` betyr ordlisteangrep, med eller uten ekstra regler. `-r dive.rule` sier at vi skal bruke regelfila dive.rule. Hver regel i fila brukes på hvert ord i ordlista. En regel kan f.eks. være å gjøre legge til noen tall eller spesialtegn på slutten av ordet. Regelfila følger med hashcat, men kan også lastes ned her: https://github.com/hashcat/hashcat/blob/master/rules/dive.rule
+
+Vær obs på at denne første kommandoen vil kunne ta atskillig lengre tid enn i demoen på webinaret, siden vi jukset litt for demoens skyld. Trykk 's' mens hashcat kjører for å se tid brukt og forventet tid gjenstående.
 
 ```
 hashcat -m 1000 ntlm-hashes.txt -a 0 ordliste.txt -r dive.rule
@@ -82,5 +84,5 @@ Hashcat, vise kun cracked hasher, men ikke passord:
 hashcat -m 1000 ntlm-hashes.txt --show | cut -d : -f 1
 ```
 
-Å bruke hashcat effektivt er en egen liten kunst. Her har vi nå gått for noen enkle kommandoer for å ta de verste passordene, men man kan alltids utvide reportoaret. Verktøyet er godt dokumentert og det finnes mange tutorials online.
+Å bruke hashcat effektivt er en egen liten kunst i seg selv. Her har vi nå gått for noen enkle kommandoer for å ta de verste passordene, men man kan alltids utvide reportoaret. Verktøyet er godt dokumentert og det finnes mange tutorials online.
 
