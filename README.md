@@ -41,8 +41,41 @@ impacket-secretsdump -ntds path/to/ntds.dit -system path/to/SYSTEM LOCAL -output
 ```
 Vask og anonymisering av passordhasher (Linux):
 ```
-cat certweb_ad.ntds | cut -d : -f 4 > bareNTLM.txt
+cat certweb_ad.ntds | cut -d : -f 4 > ntlm-hashes.txt
 ```
 
 Del 2 - Revisjon av passord med Hashcat:
+
 ------
+Sjekke hvilke hasher som er gjenbrukt:
+```
+sort ntlm-hashes.txt | uniq -c | grep -v ' 1 '
+```
+
+Hashcat 1:
+`-m 1000` sier at vi skal knekke NTLM-hasher. `-a 0` betyr ordlisteangrep, med eller uten ekstra regler. `-r dive.rule` sier at vi skal bruke regelfila dive.rule. Regelfila følger med hashcat, men kan også lastes ned her: https://github.com/hashcat/hashcat/blob/master/rules/dive.rule
+
+```
+hashcat -m 1000 ntlm-hashes.txt -a 0 ordliste.txt dive.rule
+```
+
+Hashcat 2:
+`-m 1000` sier at vi skal knekke NTLM-hasher. `-a 6` betyr ordlisteangrep med tegn lagt til på slutten. `?d?d?d?d` sier at vi skal legge til fire siffer på slutten av ordet. `-i` står for incremental, og gjør at man også prøver å legge til 1-3 siffer etter ordet. `-jc` gjør at første bokstav i ordet fra ordlista er stor, mens resten er små.
+
+```
+hashcat -m 1000 ntlm-hashes.txt -a 6 ordliste.txt ?d?d?d?d -i -
+```
+
+Hashcat 3:
+Med `-a 3 ?u?l?l?l?d?d?d?d` prøver vi alle passord som begynner med en stor bokstav påfulgt av tre små bokstaver, påfulgt av fire siffer
+```
+hashcat -m 1000 ntlm-hashes.txt -a 3 ?u?l?l?l?d?d?d?d
+```
+
+Hashcat, vise crackede passord:
+```
+hashcat -m 1000 ntlm-hashes.txt --show
+```
+
+Å bruke hashcat effektivt er en egen liten kunst. Her har vi nå gått for noen enkle kommandoer for å ta de verste passordene, men man kan alltids utvide reportoaret. Verktøyet er godt dokumentert og det finnes mange tutorials online.
+
