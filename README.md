@@ -74,6 +74,18 @@ Med `-a 3 ?u?l?l?l?d?d?d?d` prøver vi alle passord som begynner med en stor bok
 hashcat -m 1000 ntlm-hashes.txt -a 3 ?u?l?l?l?d?d?d?d
 ```
 
+Hashcat 4:
+Ved å benytte listene til https://hashmob.net/resources/hashmob, og da spesielt `HashMob Combined Full` så vil man erfaringsmessig kunne få en god del treff.
+
+Denne kan benyttes med to siffer til slutt og deretter et spesialtegn, og igjen hvor første bokstav i ordet fra ordlista er stor, mens resten er små.
+```
+hashcat -m 1000 ntlm-hashes.txt -a 6 hashmob.net_YYYY-MM-DD.found ?d?d?s -jc
+```
+Videre kan man også kjøre denne med dive.rule, men merk at dette vil kunne ta lang tid: 
+```
+hashcat -m 1000 ntlm-hashes.txt -a 0 hashmob.net_YYYY-MM-DD.found -r dive.rule
+```
+------
 Hashcat, vise crackede hasher og tilhørende passord:
 ```
 hashcat -m 1000 ntlm-hashes.txt --show
